@@ -1,24 +1,60 @@
-import { Place } from "../models/place.js";
-import { PlaceText } from "../models/placeText.js";
+import { getData, deletePlace, addPlace, editPlace } from "./utils/utils.js";
 
-const getPlaceInfo = async (req, res) => {
-  try {
-    const { name } = req.params;
-    const allPlacesText = await PlaceText.find({
-      placeName: { $regex: `${name}` },
-    });
-    res.send(allPlacesText);
-  } catch (e) {
-    res.send({ error: e.message });
-  }
-};
 const getAllPlaces = async (req, res) => {
   try {
-    const allPlaces = await Place.find();
+    const allPlaces = await getData();
+    if (!allPlaces[0]) {
+      return res.status(404).send("No places found");
+    }
     res.send(allPlaces);
   } catch (e) {
-    res.send({ error: e.message });
+    res.status(500).send({ error: e.message });
   }
 };
 
-export { getAllPlaces, getPlaceInfo };
+const getPlace = async (req, res) => {
+  try {
+    const place = await getData(req.params.id);
+    if (!place) {
+      return res.status(404).send("No place found, get failed");
+    }
+    res.send(place);
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+};
+
+const modifyPlace = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const place = await editPlace(id, req.body);
+    res.send(place);
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+};
+
+const removePlace = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const place = await deletePlace(id);
+    if (!place) {
+      return res.status(404).send("No place found, delete failed");
+    }
+    res.send(place);
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+};
+
+const postPlace = async (req, res) => {
+  try {
+    const place = await addPlace(req.body);
+    await place.save();
+    res.status(201).send(place);
+  } catch (e) {
+    res.status(500).send({ error: e.message });
+  }
+};
+
+export { getAllPlaces, getPlace, removePlace, postPlace, modifyPlace };

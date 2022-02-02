@@ -12,6 +12,7 @@ const __dirname = dirname(__filename);
 const app = express();
 
 app.use(cors(CorsConfig));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
 const publicPath = path.join(__dirname, "./client/build");
@@ -28,5 +29,3 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log("listening on port " + port);
 });
-
-export { app };

@@ -21,7 +21,7 @@ const Marker = ({ markerPoint, place, placeOnMap }) => {
       });
     });
     marker.addListener("click", (e) => {
-      // displayLocationInfo(e)
+      //displayLocationInfo(e)
     });
   };
 
