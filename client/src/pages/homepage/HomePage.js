@@ -13,7 +13,7 @@ function Homepage() {
   const getAllPlaces = async () => {
     try {
       const response = await api.get("/places");
-      console.log(response);
+      // console.log(response);
       if (response) {
         setPlaces(response.data);
       } else {
@@ -27,9 +27,9 @@ function Homepage() {
     getAllPlaces();
   }, []);
 
-  const bringPlaceFromMap = (val) => {
-    setplaceOnMap(val);
-    console.log(val);
+  const bringPlaceFromMap = (place) => {
+    setplaceOnMap(place);
+    // console.log(place);
   };
 
   return (

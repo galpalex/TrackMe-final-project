@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./map.css";
 import api from "../../api/api";
 
-const Marker = ({ markerPoint, place, placeOnMap }) => {
+const Marker = ({ markerPoint, placeOnMap, place }) => {
   const [marker, setMarker] = useState();
   const [pop, setPop] = useState();
 
@@ -21,17 +21,12 @@ const Marker = ({ markerPoint, place, placeOnMap }) => {
       });
     });
     marker.addListener("click", (e) => {
-      //displayLocationInfo(e)
+      displayLocationInfo(e);
     });
   };
 
-  const displayLocationInfo = async (e) => {
-    try {
-      const response = await api.get(`/place/${place.name}`);
-      placeOnMap([response.data, place]);
-    } catch (e) {
-      throw new Error("oh nooo");
-    }
+  const displayLocationInfo = () => {
+    placeOnMap(place);
   };
 
   React.useEffect(() => {
