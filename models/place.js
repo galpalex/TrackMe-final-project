@@ -8,11 +8,11 @@ const placeSchema = mongoose.Schema({
   coordinates: {
     type: [Number],
     required: true,
-    validate(value) {
-      if (value.length !== 2) {
-        throw new Error("Coordinates are invalid");
-      }
-    },
+    // validate(value) {
+    //   if (parseInt(value, 10).length !== 2) {
+    //     throw new Error("Coordinates are invalid");
+    //   }
+    // },
   },
   comment: {
     type: String,

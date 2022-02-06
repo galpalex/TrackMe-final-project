@@ -5,6 +5,7 @@ import ImageCard from "../imageCard/imageCard";
 
 function LocationPage({ placeData }) {
   //console.log(placeData);
+
   return (
     <>
       <div className="location-container">

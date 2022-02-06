@@ -11,7 +11,7 @@ const __dirname = dirname(__filename);
 
 const app = express();
 
-app.use(cors(CorsConfig));
+app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
