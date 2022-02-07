@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./location.css";
 import PlaceCard from "../placeCard/PlaceCard";
-import ImageCard from "../imageCard/imageCard";
+//import ImageCard from "../imageCard/imageCard";
+//import EditCard from "../editCard/EditCard";
 
 function LocationPage({ placeData }) {
   //console.log(placeData);
@@ -10,7 +11,8 @@ function LocationPage({ placeData }) {
     <>
       <div className="location-container">
         <PlaceCard place={placeData} />
-        <ImageCard place={placeData} />
+        {/* <ImageCard place={placeData} /> */}
+        {/* <EditCard place={placeData} /> */}
       </div>
     </>
   );
