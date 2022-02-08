@@ -10,6 +10,9 @@
   font-size:50px;
   background-repeat: no-repeat; */
 }
+body {
+  overflow: hidden; /* Hide scrollbars */
+}
 @media (max-width: 506px) {
   .homepage-container {
     display: flex;
