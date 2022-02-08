@@ -23,12 +23,12 @@
 // }
 // export default PlaceCard;
 ////////////////////////////////////////////////////////
-import { useState, useEffect, useContext } from "react";
-import "./EditCard.css";
+import { useContext, useState } from "react";
+import "./addSpot.css";
 import Button from "../Button";
 import InputField from "../InputField";
 import Form from "../Form";
-import { onEdit } from "../../utils/utils";
+import { onCreate } from "../../utils/utils";
 import { AppContext } from "../../context";
 //import INPUT_FIELDS from "../INPUT_FIELDS";
 
@@ -77,18 +77,18 @@ const INPUT_FIELDS = [
 //   return <button type={type}>{children}</button>;
 // };
 
-function EditCard({ place }) {
+function AddSpot() {
   const [inputsVal, setInputsVal] = useState({});
   const { isRefreshing } = useContext(AppContext);
   const { setIsRefreshing } = useContext(AppContext);
-  useEffect(() => {
-    setInputsVal({
-      ...place,
-      coordinateLat: place.coordinates[0],
-      coordinateLong: place.coordinates[1],
-    });
-    // setInputsVal({ ...place });
-  }, []);
+  // useEffect(() => {
+  //   setInputsVal({
+  //     ...place,
+  //     coordinateLat: place.coordinates[0],
+  //     coordinateLong: place.coordinates[1],
+  //   });
+  //   // setInputsVal({ ...place });
+  // }, []);
 
   //setInputsVal(place);
   const handleInputs = ({ target: { name, value } }) => {
@@ -105,12 +105,13 @@ function EditCard({ place }) {
 
     const MyBody = { name, comment, images, coordinates };
 
-    onEdit(place, MyBody);
+    console.log("MYbody", MyBody);
+    onCreate(MyBody);
     setIsRefreshing(!isRefreshing);
   };
 
   return (
-    <Form onSubmit={onSubmit}>
+    <Form onSubmit={onSubmit} className="form">
       {INPUT_FIELDS.map((attr) => {
         return (
           <InputField
@@ -130,5 +131,5 @@ function EditCard({ place }) {
   );
 }
 
-export default EditCard;
+export default AddSpot;
 //export { EditCard };

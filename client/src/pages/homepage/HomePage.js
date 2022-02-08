@@ -11,7 +11,7 @@ import LocationPage from "../../components/location/LocationPage";
 function Homepage() {
   const [places, setPlaces] = useState([]);
   const [placeOnMap, setplaceOnMap] = useState([]);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(true);
   // const value = { isRefreshing, setIsRefreshing };
   // const PlaceContext = React.createContext({
   //   isRefreshing: false,
@@ -38,7 +38,11 @@ function Homepage() {
     }
   };
   useEffect(() => {
+    // if (places.length > 1) {
     getAllPlaces();
+    // }
+
+    console.log("from homepage", isRefreshing);
   }, [isRefreshing]);
 
   const bringPlaceFromMap = (place) => {
