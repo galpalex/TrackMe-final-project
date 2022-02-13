@@ -12,18 +12,6 @@ const getAllPlaces = async (req, res) => {
   }
 };
 
-const getPlace = async (req, res) => {
-  try {
-    const place = await getData(req.params.id);
-    if (!place) {
-      return res.status(404).send("No place found, get failed");
-    }
-    res.send(place);
-  } catch (e) {
-    res.status(500).send({ error: e.message });
-  }
-};
-
 const modifyPlace = async (req, res) => {
   const { id } = req.params;
   try {
@@ -57,4 +45,4 @@ const postPlace = async (req, res) => {
   }
 };
 
-export { getAllPlaces, getPlace, removePlace, postPlace, modifyPlace };
+export { getAllPlaces, removePlace, postPlace, modifyPlace };

@@ -24,11 +24,6 @@
   font-size: 3rem;
 }
 .image {
-  /* border-radius: 50%; */
-  /* border: 3px solid #ddd;
-  border-radius: 4px;
-  padding: 5px;
-  width: 100px; */
   max-width: 100%;
   height: auto;
 }
@@ -42,9 +37,4 @@
   padding: 10px;
   color: white;
   text-decoration: none;
-}
-@media only screen and (max-width: 500px) {
-  .cont-navbar {
-    height: 11vh;
-  }
 }

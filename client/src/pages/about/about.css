@@ -1,0 +1,26 @@
+body {
+  background-image: url(./../../assets/aboutDesktop.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.container-about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Libre Baskerville", sans-serif;
+  font-weight: bold;
+  font-size: 34px;
+  margin: 3rem;
+  color: white;
+}
+.container-about h1 {
+  margin-bottom: 2rem;
+}
+.container-about a {
+  text-decoration: none;
+  color: inherit;
+}
+.container-about a:hover {
+  color: blue;
+}

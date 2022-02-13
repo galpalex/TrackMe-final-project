@@ -14,5 +14,5 @@ function Images({ place }) {
     </div>
   );
 }
-//to do: add carusel
+
 export default Images;

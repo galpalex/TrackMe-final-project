@@ -1,6 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
-import { MONGOOSE_URI, CorsConfig } from "./config.js";
+import { MONGOOSE_URI } from "./config.js";
 import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";

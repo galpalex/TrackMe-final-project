@@ -1,28 +1,3 @@
-// import { useState } from "react";
-// import { useForm } from "react-hook-form";
-
-// function EditCard() {
-//   const { register, handleSubmit } = useForm();
-//   const [result, setResult] = useState("");
-
-//   return (
-//     <form onSubmit={handleSubmit((data) => setResult(JSON.stringify(data)))}>
-//       <Header />
-//       <input {...register("name")} placeholder="Place name:" />
-//       <input {...register("comment")} placeholder="Comment:" />
-//       <input {...register("coordinates")} placeholder="Coordinates latitude:" />
-//       <input
-//         {...register("coordinates")}
-//         placeholder="Coordinates longitude:"
-//       />
-//       <input {...register("images")} placeholder="Image url:" />
-//       <p>{result}</p>
-//       <input type="submit" />
-//     </form>
-//   );
-// }
-// export default PlaceCard;
-////////////////////////////////////////////////////////
 import { useState, useEffect, useContext } from "react";
 import "./EditCard.css";
 import Button from "../Button";
@@ -30,7 +5,6 @@ import InputField from "../InputField";
 import Form from "../Form";
 import { onEdit } from "../../utils/utils";
 import { AppContext } from "../../context";
-//import INPUT_FIELDS from "../INPUT_FIELDS";
 
 const INPUT_FIELDS = [
   {
@@ -60,23 +34,6 @@ const INPUT_FIELDS = [
   },
 ];
 
-// const Form = ({ children, onSubmit }) => {
-//   return <form onSubmit={onSubmit}>{children}</form>;
-// };
-
-// const InputField = ({ placeholder, ...attr }) => {
-//   return (
-//     <>
-//       <label>{placeholder}</label>
-//       <input {...attr} />
-//     </>
-//   );
-// };
-
-// const Button = ({ children, type }) => {
-//   return <button type={type}>{children}</button>;
-// };
-
 function EditCard({ place }) {
   const [inputsVal, setInputsVal] = useState({});
   const { isRefreshing } = useContext(AppContext);
@@ -87,10 +44,8 @@ function EditCard({ place }) {
       coordinateLat: place.coordinates[0],
       coordinateLong: place.coordinates[1],
     });
-    // setInputsVal({ ...place });
   }, []);
 
-  //setInputsVal(place);
   const handleInputs = ({ target: { name, value } }) => {
     setInputsVal({ ...inputsVal, [name]: value });
   };
@@ -131,4 +86,3 @@ function EditCard({ place }) {
 }
 
 export default EditCard;
-//export { EditCard };

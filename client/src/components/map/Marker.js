@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import "./map.css";
-import api from "../../api/api";
 
 const Marker = ({ markerPoint, placeOnMap, place }) => {
   const [marker, setMarker] = useState();
   const [pop, setPop] = useState();
 
-  // this is event listener for the marker to do action
   const eventListeners = () => {
     marker.addListener("mouseover", () => {
       pop.open({

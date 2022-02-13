@@ -3,11 +3,8 @@ import "./location.css";
 import PlaceCard from "../placeCard/PlaceCard";
 
 import AddSpot from "../addSpot/AddSpot";
-//import ImageCard from "../imageCard/imageCard";
-//import EditCard from "../editCard/EditCard";
 
 function LocationPage({ placeData }) {
-  //console.log(placeData);
   const [isShow, setIsShow] = useState(false);
 
   return (
@@ -26,8 +23,6 @@ function LocationPage({ placeData }) {
           </button>
         </div>
         <PlaceCard place={placeData} />
-        {/* <ImageCard place={placeData} /> */}
-        {/* <EditCard place={placeData} /> */}
         <div>{isShow ? <AddSpot /> : null}</div>
       </div>
     </>

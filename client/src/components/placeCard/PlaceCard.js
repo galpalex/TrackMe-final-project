@@ -10,10 +10,6 @@ const PlaceCard = ({ place }) => {
   const { setIsRefreshing } = useContext(AppContext);
   const [isShow, setIsShow] = useState(false);
   const [displayPlace, setDisplayPlace] = useState(place.name);
-  // const setShow = () => {
-  //   setIsShow(true);
-  // };
-  // console.log(isShow);
 
   useEffect(() => {
     setIsShow(false);
@@ -48,11 +44,6 @@ const PlaceCard = ({ place }) => {
             <button
               className="update-btn"
               onClick={() => {
-                // EditCard(place);
-                // setIsRefreshing(!isRefreshing);
-                // setIsShow(true);
-                // <EditCard place={place} />;
-                //setShow();
                 setIsShow(!isShow);
               }}
             >
